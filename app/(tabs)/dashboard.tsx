@@ -4,20 +4,30 @@ import ProgressBar from "@/components/ProgressBar";
 import { Text, View } from "@/components/Themed";
 
 export default function DashboardScreen() {
-  const mealsCurrent = 9;
-  const mealsTotal = 14;
+ 
+  let diningDollarsCurrent = 73.38;
+  let diningDollarsTotal = 120;
+  
+  let mealsCurrent = 9;
+  let mealsTotal = 14;
 
-  const diningDollarsCurrent = 73.38;
-  const diningDollarsTotal = 120;
+  let equivalenciesCurrent = 3;
+  let equivalenciesTotal = 5;
+
+  let chickfilaCurrent = 1;
+  let chickfilaTotal = 2;
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container}
+    lightColor="#661424"
+    darkColor="#3F0C16"
+    >
       <Text style={styles.title}>Meal Swipe Tracker</Text>
 
       <View
         style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
+        lightColor="#53101D"
+        darkColor="#53101D"
       />
 
       <ProgressBar
@@ -31,18 +41,33 @@ export default function DashboardScreen() {
         label={`${mealsCurrent} / ${mealsTotal}`}
         percentage={Math.round((mealsCurrent / mealsTotal) * 100)}
       />
+
+      <ProgressBar
+        title="Meal Equivalencies"
+        label={`${equivalenciesCurrent} / ${equivalenciesTotal}`}
+        percentage={Math.round((equivalenciesCurrent / equivalenciesTotal) * 100)}
+      />
+
+      <ProgressBar
+        title="Chick-Fil-A Swipes"
+        label={`${chickfilaCurrent} / ${chickfilaTotal}`}
+        percentage={Math.round((chickfilaCurrent / chickfilaTotal) * 100)}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 50,
+    flex: 1,
+    paddingTop: 50,
+    paddingHorizontal: 10,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
   title: {
     fontSize: 40,
+    color: "#FFCE02",
     fontWeight: "bold",
   },
   separator: {
